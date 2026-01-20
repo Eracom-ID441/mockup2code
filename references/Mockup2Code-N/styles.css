@@ -1,0 +1,260 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #FF0000;
+    position: relative;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Headers */
+h1, h2 {
+    font-weight: 500;
+    font-size: 40px;
+}
+
+/* Navigation styles */
+.navigation {
+    text-align: center;
+    padding: 30px 0;
+}   
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin-right: 100px;
+}
+
+.navigation ul li:last-child {
+    margin-right: 0;
+}
+
+.navigation ul li a {
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 10px 20px;
+}
+
+.navigation ul li a:focus,
+.navigation ul li a:hover {
+    outline: 1px solid #FF0000;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* Title styles */
+.title {
+    color: #FF0000;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 8em;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Logo styles */
+.logo-container {
+    position: fixed;
+    top: 5px;
+    left: 20px;
+    padding: 10px 20px;
+    z-index: 10;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+/* Image styles */
+.image-container {
+    position: relative;
+}
+
+.image-text {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    color: #FF0000;
+    font-size: 2em;
+    font-weight: 500;
+    text-transform: uppercase;
+    z-index: 10;
+    width: 50vw;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+/* Glass button styles */
+.glass-button {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 12vw;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.glass-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Info section styles */
+.info-section {
+    margin: 60px;
+    position: relative;
+    border-bottom: 1px solid #FF0000;
+    border-top: 1px solid #FF0000;
+}
+
+.info-item {
+    margin-bottom: 40px;
+    font-size: 7em;
+    font-weight: 500;
+    position: relative;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+}
+
+.italic {
+    font-style: italic;
+    font-weight: 200;
+    position: absolute;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(4px);
+    border-radius: 47%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    z-index: 2;
+}
+
+.align-right {
+    text-align: right;
+}
+
+/* Column styles */
+.column {
+    width: calc((100% - 150px - 100px) / 2);
+    height: 200px;
+    flex: 1;
+}
+
+.column p {
+    margin: 5px 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Footer styles */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px;
+    gap: 1rem;
+}
+
+.footer h2 {
+    font-size: 20px;
+}
+
+/* Contact button styles */
+.contact-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 1200px) {
+    .image-text {
+        font-size: 1.5em;
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    .navigation ul li {
+        margin-right: 15px;
+    }
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;   
+    }
+    .image-text {
+        font-size: 1.2em;
+        width: 60vw;
+    }
+}
+
+a {
+    color: #FF0000;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    outline: none;
+    color: #FF0000;
+}
+
+
+.visually-hidden {
+    visibility: hidden;
+}
