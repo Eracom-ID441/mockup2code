@@ -1,100 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>MI ATELIER</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a class="evitement" href="#contenu">Aller au contenu</a>
-    <nav>
-        <picture>
-            <source type="image/avif" loading="lazy" srcset="00_SRC\01_PNG\Polar.avif">
-        <img src="00_SRC\01_PNG\Polar.png" loading="lazy" alt="Logo Polar">
-        </picture>
-        <ul>
-            <il><a href="#">Home</a></il>
-            <il><a href="#">Product</a></il>
-            <il><a href="#">Pricing</a></il>
-            <il><a href="#">Testimonials</a></il>
-            <il><a href="#">Contact Us</a></il>
-        </ul>
-        <button>Buy Now</button>
-    </nav>
-    <div id="top" id="contenu">
-        <div id="img">
-            <div id="circle"></div>
-            <picture>
-                <source type="image/avif" loading="lazy" srcset="00_SRC\01_PNG\Ice_cream.avif">
-                <img id="icecream" loading="lazy" src="00_SRC\01_PNG\Ice_cream.png" alt="Ice cream with a ball of mint, strawberry, chocolate, and lemon">
-            </picture>
-            <picture>
-                <source type="image/avif" loading="lazy" srcset="00_SRC\01_PNG\Splash.avif">
-                <img id="splash" loading="lazy" src="00_SRC\01_PNG\Splash.png" alt="Splash of milk">
-            </picture>
-        </div>
-        <div id="text">
-            <h3>Sweet fun, full of milk</h3>
-            <h1>Feel inside cold with our delicious <span> ice cream.</span></h1>
-            <p> Somme food has looked so awful that it's looked like smething that the dog's brought home, yet after one mouthful i've been left eating my thoughts, my words.</p>
-            <button>Buy Now</button>
-        </div>
-   </div>
+    <a href="#main-content" class="skip-link">Go to main content</a>
+    <header>
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#lookbook">Lookbook</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#collections">Collections</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="middle">
-        <div class="icon"><img src="00_SRC\02_SVG\car.svg" alt="Car mixed with a present"> <h2>Free Shipping</h2> <p>Last Chance! Free shipping on all orders ends today.</p></div>
-        <div class="icon"><img src="00_SRC\02_SVG\Cup.svg" alt="noodle box"> <h2>Quick Packaging</h2> <p>Last Chance! Free shipping on all orders ends today</p></div>
-        <div class="icon"><img src="00_SRC\02_SVG\cashback.svg" alt="money with two arrows going around it"> <h2>100% Money Back</h2> <p>Last Chance! Free shipping on all orders ends today</p></div>
-        <div class="icon"><img src="00_SRC\02_SVG\fastdelivery.svg" alt="a car going fast"> <h2>Fast Delivery</h2> <p>Last Chance! Free shipping on all orders ends today</p></div>
-    </div>
+    <main id="main-content">
+        <h1 class="title">MI ATELIER</h1>
 
-    <footer>
-        <div id="polar">
-            <picture>
-                <source type="image/avif" loading="lazy" srcset="00_SRC\01_PNG\Polar.avif">
-            <img src="00_SRC\01_PNG\Polar.png" loading="lazy" alt="Logo Polar">
-            </picture>
-                <p>Some food has looked so awful that it's looked like something that the dog's brought home.</p>
-                <div id="follow">
-                    <strong>Follow Us</strong>
-                     <div id="reseau">
-                         <img src="00_SRC\01_PNG\facebook.png" alt="Facebook">
-                        <img src="00_SRC\01_PNG\twitter.png" alt="Twitter">
-                        <img src="00_SRC\01_PNG\instagram.png" alt="Instagram">
-                        <img src="00_SRC\01_PNG\linkedin.png" alt="Linkedin">
-                    </div>
-                </div>
+        <div class="logo-container">
+            <img src="img/logo.svg" alt="MI Atelier Logo" class="logo" loading="lazy">
         </div>
-            <div id="Lien">
-                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Product</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
+
+        <div class="image-container">
+            <img src="img/image30-min.avif" alt="Woman standing with a fashion style on a daylight city street background" class="img" loading="lazy">
+            <div class="image-text">
+                Design atelier for individual tailoring 
+                of high-quality and functional clothes. We are specialized in the art 
+                of fashion and create in collaboration with you.
             </div>
-                <div id="Lien2">
-                <ul>
-                    <li><a href="#">Delivery information</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Condition</a></li>
-                    <li><a href="#">Search Teams</a></li>
-                    <li><a href="#">Order & Return</a></li>
-                </ul>
-            </div>
-            <div id="Newsletter">
-                <h3>Newsletter</h3>
-            <div id="Form">
-                <input type="email" class="input" id="Email" name="Email" placeholder="Your email">
-                <input class="btn" value="Subscribe" type="submit">
-            </div>
-         </div>
+            <button class="glass-button" aria-label="Book a call">Book a call</button>
+        </div>
+
+        <section class="info-section" aria-labelledby="info-heading">
+            <h2 id="info-heading" class="visually-hidden">Company Information</h2>
+            <div class="info-item align-right"><span class="italic">12</span> years in the style industry</div>
+            <div class="info-item align-right"><span class="italic">16</span> professional masters in the team</div>
+            <div class="info-item align-right"><span class="italic">23</span> collaborations with big brands</div>
+            <div class="info-item align-right"><span class="italic">4100</span> successfully completed orders</div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="column">
+            <h2>CALL US</h2>
+            <p><a href="tel:+19999999999">+1 (999) 999-9999</a></p>
+            <p><a href="tel:+19994999496">+1 (999) 499-9496</a></p>
+        </div>
+        <div class="column">
+            <h2>VISIT US</h2>
+            <p>32 HOMESTEAD AVE</p>
+            <p>MIDDLETOWN NY</p>
+            <p>10941-1012 USA</p>
+        </div>
+        <div class="column">
+            <h2>SOCIAL</h2>
+            <p><a href="https://instagram.com" target="_blank">Instagram</a></p>
+            <p><a href="https://facebook.com" target="_blank">Facebook</a></p>
+            <p><a href="https://twitter.com" target="_blank">Twitter</a></p>
+        </div>
+        <div class="column">
+            <h2>E-MAIL</h2>
+            <p><a href="mailto:miatelier@chcial.com">miatelier@chcial.com</a></p>
+            <p><a href="mailto:micommerc@chcial.com">micommerc@chcial.com</a></p>
+        </div>
     </footer>
+
+    <button class="contact-button" aria-label="Contact Us">Contact</button>
 </body>
 </html>
