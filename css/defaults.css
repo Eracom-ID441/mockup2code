@@ -9,16 +9,18 @@
   --blur-border: 1px solid #FFF;
   
   /* Variables de texte */
-  --font-size-s: 18px;
-  --font-size-m: 20px;
-  --font-size-l: 25px;
-  --font-size-xl: 30px; 
-  --font-size-xxl: 50px;
-  --font-size-xxxl: 53.24px;
-  --font-size-xxxxl: 80px;
-  --font-size-xxxxxl: 125px;
-  --font-size-xxxxxxl: 160px;
+  --font-size-s: 18px;/* petit texte */
+  --font-size-m: 20px;/* texte de base */
+  --font-size-l: 25px;/* grand texte */
+  --font-size-xl: 30px; /* sous titre */
+  --font-size-xxl: 50px;/* titre */
+  --font-size-xxxl: 53.24px;/* texte pour la partie collection */
+  --font-size-xxxxl: 80px;/* texte partie lookbook */
+  --font-size-xxxxxl: 125px;/* titre des sections */
+  --font-size-xxxxxxl: 160px;/* premier titre */
 }
+
+
 
 body{
   font-family: 'Inter', sans-serif ;
