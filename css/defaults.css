@@ -1,13 +1,51 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/Inter-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 200;
+  src: url('../fonts/Inter-ExtraLightItalic.woff2') format('woff2');
+}
 :root {
   --main-bg-color: #E0D9D3;
   --main-color: #FF1100;
   --white-color: #F9F9F9;
   --black-color: #1C1815;
-  --blur: blur(15px);
+  --blur: blur(6px);
   --blur-border: 1px solid #FFF;
+  
+  /* Variables de texte */
+  --font-size-s: 18px;/* petit texte */
+  --font-size-m: 20px;/* texte de base */
+  --font-size-l: 25px;/* grand texte */
+  --font-size-xl: 30px; /* sous titre */
+  --font-size-xxl: 50px;/* titre */
+  --font-size-xxxl: 53.24px;/* texte pour la partie collection */
+  --font-size-xxxxl: 80px;/* texte partie lookbook */
+  --font-size-xxxxxl: 125px;/* titre des sections */
+  --font-size-xxxxxxl: 160px;/* premier titre */
 }
 
+
+
 body{
+  font-family: 'Inter', sans-serif ;
   background-color: var(--main-bg-color);
   margin: 0;
 }
@@ -16,4 +54,9 @@ body{
   height: 1px;
   border: none;
   background-color: var(--main-color);
+}
+
+h1,h2,h3{
+  text-transform: uppercase;
+  font-weight: 500;
 }

@@ -1,0 +1,82 @@
+body{
+	background-color: var(--main-bg-color);
+	align-self: center;
+	color: var(--main-color)
+
+}
+
+section{
+	height: 120vh;
+}
+
+section.images{
+	background-color: var(--main-color);
+}
+
+.rectangle{
+background-color: var(--white-color);
+
+display: flex;
+
+width: 85vw;
+height: fit-content;
+
+justify-content: center;
+justify-self: center;
+
+gap: 20px;
+}
+
+article{
+	margin: 20px;
+	align-self: center;
+	height: 80vh;
+
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: fit-content;
+}
+
+.miranda{
+background-image: url(/assets_images/About-us-2.png);
+
+}
+
+.landber{
+background-image: url(/assets_images/About-us-3.png);
+background-size: cover sizex(-1);
+}
+
+
+h1{
+	font-size: var(--font-size-xxxxxl);
+}
+
+h2{
+	font-style: italic;
+	font-weight: 200;
+	font-size: var(--font-size-xxxxxl);
+}
+
+p{
+	font-size: var(--font-size-s);
+	text-transform: uppercase;
+}
+
+.logo {
+  display: inline-block;
+  padding: 6px 20px;
+
+  border: 1px solid var(--main-color);
+  border-radius: 50%;
+}
+
+
+
+/*
+img{
+ -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+  */
