@@ -1,1 +1,47 @@
-x
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#collections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.collections-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 24em;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  padding: 0;
+ background-size: cover;
+  background-position: bottom;
+}
+
+#spring {
+  background-image: url(/assets_images/Collections-1.png);
+
+}
+
+
+.buttons-collections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5em 8em 1.5em 8em;
+    backdrop-filter: var(--blur);
+    border: var(--blur-border);
+    border-radius: 100px;
+    background: rgba(227, 227, 227, 0.20);
+    color: var(--white-color);
+}
