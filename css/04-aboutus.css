@@ -1,4 +1,21 @@
-h1 { 
-    font-size: 2rch;
-    font-family: ;
+body { 
+    color: var(--main-color)
 }
+
+h1 { 
+    font-size: var(--font-size-xxxxxl);
+}
+
+h2 { 
+    font-size: var(--font-size-m);
+}
+
+h3 { 
+    font-size: var(--font-size-s);
+}
+
+img { 
+    max-width: 100% ;
+}
+
+
