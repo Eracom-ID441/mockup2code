@@ -55,3 +55,7 @@ body{
   border: none;
   background-color: var(--main-color);
 }
+
+h1,h2,h3{
+  text-transform: uppercase;
+}
