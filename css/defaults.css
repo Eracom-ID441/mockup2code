@@ -27,7 +27,7 @@
   --main-color: #FF1100;
   --white-color: #F9F9F9;
   --black-color: #1C1815;
-  --blur: blur(15px);
+  --blur: blur(6px);
   --blur-border: 1px solid #FFF;
   
   /* Variables de texte */
