@@ -7,6 +7,13 @@
   --blur-border: 1px solid #FFF;
 }
 
-  body{
-	background-color: var(--main-bg-color);
-  }
+body{
+  background-color: var(--main-bg-color);
+  margin: 0;
+}
+
+.ligne{
+  height: 1px;
+  border: none;
+  background-color: var(--main-color);
+}
