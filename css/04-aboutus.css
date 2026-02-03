@@ -1,14 +1,21 @@
 body { 
-    font-family:Arial, Helvetica, sans-serif ;
-    color: red;
+    color: var(--main-color)
 }
 
 h1 { 
-    font-size: 10rch;
+    font-size: var(--font-size-xxxxxl);
+}
+
+h2 { 
+    font-size: var(--font-size-m);
+}
+
+h3 { 
+    font-size: var(--font-size-s);
 }
 
 img { 
-max-width: 100% ;
+    max-width: 100% ;
 }
 
 
