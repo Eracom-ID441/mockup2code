@@ -1,0 +1,36 @@
+.step{
+	display: flex;
+	gap:2em;
+	align-content: center;
+	margin: 2em 1em 3em 3em;
+}
+
+
+
+h1{
+	color: var(--main-color);
+	font-size: var(--font-size-xxxxxl);
+	text-align: center;
+}
+
+h3{
+	color: var(--main-color);
+	font-size: var(--font-size-m);
+	display: flex;
+	font-weight: 100;
+	margin: 0;
+	flex: 1;
+
+}
+
+p{
+	color: var(--main-color);
+	font-size: var(--font-size-m);
+	display: flex;
+	margin: 0;
+	flex: 1;
+}
+
+.capitales {
+	text-transform: uppercase;
+}
