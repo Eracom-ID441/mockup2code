@@ -31,6 +31,7 @@
   --blur-border: 1px solid #FFF;
   
   /* Variables de texte */
+  --font-size-xs: 16px; /* petit lien */
   --font-size-s: 18px;/* petit texte */
   --font-size-m: 20px;/* texte de base */
   --font-size-l: 25px;/* grand texte */
