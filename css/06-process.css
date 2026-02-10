@@ -2,7 +2,6 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 30px;
-	align-items: ;
 }
 
 
@@ -22,7 +21,7 @@ p{
 	color: var(--main-color);
 	font-size: var(--font-size-m);
 	margin: 0;
-	width: 800px;
+	width: 790px;
 }
 
 .capitales {
