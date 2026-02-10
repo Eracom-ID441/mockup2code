@@ -1,6 +1,8 @@
 .step{
 	display: flex;
-	flex-direction: row;
+	justify-content: space-between;
+	margin: 30px;
+	align-items: ;
 }
 
 
@@ -8,15 +10,19 @@ h3{
 	color: var(--main-color);
 	font-size: var(--font-size-m);
 	font-weight: 100;
-	flex: 1;
-	margin: 0;
+	width: 10em;
+	margin-top: 0;
+}
+
+.day {
+	width: 8em;
 }
 
 p{
 	color: var(--main-color);
 	font-size: var(--font-size-m);
 	margin: 0;
-	flex: 1;
+	width: 800px;
 }
 
 .capitales {
