@@ -1,10 +1,11 @@
+/* Import de la police Inter (Regular 400, Medium 500, Bold 700) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     background-color: #F9F9F9;
-    /* Application de la police Inter */
     font-family: 'Inter', sans-serif;
-    font-weight: 500; /* Inter Medium */
     overflow-x: hidden;
 }
 
@@ -12,11 +13,9 @@ body {
 .lookbook-section {
     position: relative;
     width: 100%;
-    /* Hauteur fixe selon la maquette Figma */
     height: 1505px; 
     max-width: 1440px; 
     margin: 0 auto;
-    
     border-left: 0.5px solid #F81808;
     border-right: 0.5px solid #F81808;
     box-sizing: border-box;
@@ -29,12 +28,8 @@ body {
     width: 100%;
     text-align: center;
     color: #F81808;
-    
-    /* La police est Inter, mais pour le grand titre, on garde souvent du gras (Bold) */
-    /* Si tu le veux strictement en Medium, change 700 par 500 ici */
-    font-weight: 500; 
+    font-weight: 700; 
     font-size: 12vw;
-    
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -2px;
@@ -49,12 +44,33 @@ body {
     height: 100%;
 }
 
+/* Configuration des colonnes */
 .grid-col {
-    flex: 1;
+    flex: 1; /* Répartit l'espace équitablement entre les 7 colonnes */
     height: 100%;
     border-right: 0.5px solid #F81808;
+    
+    display: flex;
+    align-items: flex-end; /* Aligne le texte en bas */
+    justify-content: center; /* Centre le texte horizontalement */
+    padding-bottom: 120px; /* Espace en bas pour les dates futures */
 }
 
 .grid-col:last-child {
     border-right: none;
+}
+
+/* Style du texte vertical */
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #F81808;
+    
+    /* MODIFICATIONS ICI : Plus grand et plus fin */
+    font-weight: 400; /* Regular (plus fin que Bold) */
+    font-size: 52px; /* Beaucoup plus grand */
+    
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 0px;
 }
