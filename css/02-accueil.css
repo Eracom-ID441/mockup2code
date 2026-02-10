@@ -1,0 +1,22 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.section02 {
+	background-image: url("../assets_images/Header-1.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: var(--main-color);
+	text-transform: uppercase;
+
+}
+
+.section02 p {
+	font-weight 600;
+	font-size: var(--font-size-xl);
+}
