@@ -43,7 +43,11 @@
   --font-size-xxxxxxl: 160px;/* premier titre */
 }
 
-
+.ligne{
+  height: 1px;
+  border: none;
+  background-color: var(--main-color);
+}
 
 body{
   font-family: 'Inter', sans-serif ;
@@ -52,11 +56,7 @@ body{
   color: var(--main-color);
 }
 
-.ligne{
-  height: 1px;
-  border: none;
-  background-color: var(--main-color);
-}
+
 
 h1,h2,h3{
   text-transform: uppercase;

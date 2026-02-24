@@ -1,29 +1,50 @@
 body { 
-    color: var(--main-color)
+    color: red;
+    background-color: #d9d2cb;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 { 
-    font-size: var(--font-size-xxxxxl);
+    font-size: 90px;
+    text-align: center;
+    font-weight: 500;
+    margin: 30px 0;
 }
 
 h2 { 
-    font-size: var(--font-size-m);
+    font-size: 14px;
+    max-width: 520px;
+    line-height: 1.6;
+    text-align: left;
 }
 
 h3 { 
-    font-size: var(--font-size-s);
+    font-size: 12px;
+    font-weight: 400;
+    max-width: 150px;
 }
 
+header { 
+    width: 100%;
+}
+
+
 img { 
-    max-width: 100% ;
+    width: 100%;
+    display: block;
 }
 
 section { 
     display: flex;
-    flex-direction: column;         
-    justify-content: center;        
-    align-items: center;  
-
+    justify-content: center;
+    align-items: center;
 }
 
-
+.textes { 
+    width: 50%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 40px;
+}
