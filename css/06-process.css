@@ -1,3 +1,5 @@
+
+
 .step{
 	display: flex;
 	justify-content: space-between;
@@ -32,4 +34,18 @@ h1{
 	color: var(--main-color);
 	font-size: var(--font-size-xxxxxl);
 	text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background: var(--main-color);
+  }
+
+  h1,h3,p{
+	color: #F9F9F9;
+  }
+
+  .ligne{
+	background-color: #F9F9F9;
+  }
 }
