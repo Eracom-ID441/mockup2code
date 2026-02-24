@@ -52,6 +52,12 @@ body{
   color: var(--main-color);
 }
 
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: var(--black-color);
+  }
+}
+
 .ligne{
   height: 1px;
   border: none;
