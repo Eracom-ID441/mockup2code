@@ -5,19 +5,79 @@
 	src: url('../fonts/Inter-ExtraLightItalic.woff2') format('woff2');
   }
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+
+.section_10 h1 {
+
+margin: 0;
+
+text-align: center;
+}
+
   .ligne{
-	margin: 0;
+	margin: 500;
   }
   
   .title{
 	color: #FF1100;
-	font-weight: 800;
-	font-size: 80px;
+	font-weight: 00;
+	font-size: 70px;
 	font-family: 'Inter';
 }
+
+.reviews-content{
+	display:flex;
+	gap: 20px;
+	position: relative;
+}
+
+.company{
+	color: #FF1100;
+	font-weight: 100;
+	font-size: 10px;
+	font-family: 'Inter';
+	
+}
  
+.quote{
+	color: #FF1100;
+	font-weight: 00;
+	font-size: 20px;
+	font-family: 'Inter';
+	max-width: 50vw;
+	position: absolute;
+	right: 60px;
+	top: 20vw;
+}
 
   .imge-card{
 	width: 560px;
 
   }
+
+  .image-card{
+  width: 560px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  transform: scaleX(-1);
+}
+
+.hero-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reviews_header{
+margin-top: 40px;
+margin-bottom: 59px;
+}
+
