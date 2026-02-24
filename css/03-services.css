@@ -3,9 +3,15 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   grid-auto-rows: minmax(120px, auto);
+  margin-top: 6rem;
 }
 
-img{
+.section-03 h3{
+  margin: 10px 0 2px 0;
+  line-height: 1.3;
+}
+
+.section-03 img{
   width: 100%;
   aspect-ratio: 313/258 ;
   object-fit: cover;
@@ -53,7 +59,7 @@ img{
   grid-row: 4;
 }
 
-h1{
+.section-03 h1{
   font-size: var(--font-size-xxxxxl);
   line-height: 30%;
   text-align: center;
@@ -61,9 +67,13 @@ h1{
   font-style: normal;
   font-weight: 500; /* Medium */
   src: url('../fonts/Inter-Medium.woff2') format('woff2');
+  letter-spacing: 0.94;
 }
 
-a{
+.section-03 a{
   color: var(--main-color);
   font-size: var(--font-size-xs);
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
 }
+
