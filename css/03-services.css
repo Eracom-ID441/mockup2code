@@ -67,6 +67,7 @@
   font-style: normal;
   font-weight: 500; /* Medium */
   src: url('../fonts/Inter-Medium.woff2') format('woff2');
+  letter-spacing: 0.94;
 }
 
 .section-03 a{
