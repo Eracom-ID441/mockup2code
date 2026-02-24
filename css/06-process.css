@@ -34,6 +34,7 @@ h1{
 	color: var(--main-color);
 	font-size: var(--font-size-xxxxxl);
 	text-align: center;
+	letter-spacing: -6%;
 }
 
 @media (prefers-color-scheme: dark) {
