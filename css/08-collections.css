@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 5em 5em 10em 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,9 +7,10 @@ body {
   align-content: center;
 }
 
-h1{
-    font-size: var(--font-size-xxxl);
-    color: var(--main-color);
+h1 {
+  font-size: var(--font-size-xxxxxl);
+  color: var(--main-color);
+  letter-spacing: -5.5%;
 }
 
 #collections-grid {
@@ -33,44 +34,49 @@ h1{
   background-size: cover;
   background-position: bottom;
   color: var(--main-color);
-  
 }
 
-.collections-card.h2{
-    font-size: var(--font-size-xxxxxxxl)!important; 
+.collections-card h2 {
+  font-size: var(--font-size-xxxl);
+  letter-spacing: -5.5%;
 }
 
 #spring {
   background-image: url(/assets_images/Collections-1.png);
-
 }
-#wedding{
-    background-image: url(/assets_images/Collections-2.png);
-    background-position: bottom -40px center !important;
-}
-
-#casual{
-    background-image: url(/assets_images/Collections-3.png);
-    background-position: center !important;
-    background-size: fit-content !important;
+#wedding {
+  background-image: url(/assets_images/Collections-2.png);
+  background-position: bottom -40px center !important;
 }
 
-#safari{
-    background-image: url(/assets_images/Collections-4.png);
-    background-position: top !important;
+#casual {
+  background-image: url(/assets_images/Collections-3.png);
+  background-position: center !important;
+  background-size: fit-content !important;
 }
 
+#safari {
+  background-image: url(/assets_images/Collections-4.png);
+  background-position: top !important;
+}
 
-.buttons-collections{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 2em 8em 2em 8em;
-    width: 60%; 
-    backdrop-filter: var(--blur);
-    border: var(--blur-border);
-    border-radius: 100px;
-    background: rgba(227, 227, 227, 0.20);
-    color: var(--white-color);
-    font-weight: 300;
+.buttons-collections {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2em 8em 2em 8em;
+  width: 60%;
+  backdrop-filter: var(--blur);
+  border: var(--blur-border);
+  border-radius: 100px;
+  background: rgba(227, 227, 227, 0.2);
+  color: var(--white-color);
+  font-weight: 300;
+  transition: background-color 0.3s ease-in-out;
+}
+ 
+.buttons-collections:hover {
+  background: var(--white-color);
+  border-color: var(--white-color);
+  color: var(--main-color);
 }
