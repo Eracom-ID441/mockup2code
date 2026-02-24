@@ -36,8 +36,8 @@ h1{
   
 }
 
-.collections-card.h2{
-    font-size: var(--font-size-xxxxxxxl)!important; 
+.collections-card h2{
+    font-size: var(--font-size-xxxl); 
 }
 
 #spring {
@@ -74,3 +74,5 @@ h1{
     color: var(--white-color);
     font-weight: 300;
 }
+
+
