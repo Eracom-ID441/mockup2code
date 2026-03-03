@@ -1,7 +1,9 @@
+
+
 .step{
 	display: flex;
 	justify-content: space-between;
-	margin: 30px;
+	margin: 60px 55px 80px;
 }
 
 
@@ -11,6 +13,8 @@ h3{
 	font-weight: 100;
 	width: 10em;
 	margin-top: 0;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .day {
@@ -22,6 +26,7 @@ p{
 	font-size: var(--font-size-m);
 	margin: 0;
 	width: 790px;
+	margin-right: 5px;
 }
 
 .capitales {
@@ -32,4 +37,19 @@ h1{
 	color: var(--main-color);
 	font-size: var(--font-size-xxxxxl);
 	text-align: center;
+	letter-spacing: -6%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background: var(--main-color);
+  }
+
+  h1,h3,p{
+	color: #F9F9F9;
+  }
+
+  .ligne{
+	background-color: #F9F9F9;
+  }
 }
