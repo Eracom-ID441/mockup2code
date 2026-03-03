@@ -1,9 +1,11 @@
-
+.contenu{
+	margin-top: var(--spacing-l);
+}
 
 .step{
 	display: flex;
 	justify-content: space-between;
-	margin: 60px 55px 80px;
+	margin: 44px 75px 66px 63px;
 }
 
 
@@ -23,10 +25,11 @@ h3{
 
 p{
 	color: var(--main-color);
-	font-size: var(--font-size-m);
+	font-size: var(--font-size-s);
 	margin: 0;
 	width: 790px;
 	margin-right: 5px;
+	letter-spacing: -5,5%;
 }
 
 .capitales {
@@ -38,6 +41,7 @@ h1{
 	font-size: var(--font-size-xxxxxl);
 	text-align: center;
 	letter-spacing: -6%;
+	margin-top: var(--spacing-l);
 }
 
 @media (prefers-color-scheme: dark) {
