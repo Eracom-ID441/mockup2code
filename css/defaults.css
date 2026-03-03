@@ -41,6 +41,10 @@
   --font-size-xxxxl: 80px;/* texte partie lookbook */
   --font-size-xxxxxl: 125px;/* titre des sections */
   --font-size-xxxxxxl: 160px;/* premier titre */
+
+  /* variables d'espacement */
+  --spacing-m: 18px;
+  --spacing-l:100px;
 }
 
 body{
@@ -59,6 +63,15 @@ body{
 h1,h2,h3{
   text-transform: uppercase;
   font-weight: 500;
+}
+
+.titre{
+  font-size: var(--font-size-xxxxxl);
+  text-align: center;
+  font-style: normal;
+  letter-spacing: -6%;
+  line-height: 1;
+  margin: var(--spacing-m) 0;
 }
 
 .container{
