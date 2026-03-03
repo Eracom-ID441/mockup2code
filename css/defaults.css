@@ -43,8 +43,6 @@
   --font-size-xxxxxxl: 160px;/* premier titre */
 }
 
-
-
 body{
   font-family: 'Inter', sans-serif ;
   background-color: var(--main-bg-color);
@@ -65,4 +63,10 @@ h1,h2,h3{
 
 .container{
 	margin: 100px 60px ;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: var(--black-color);
+  }
 }

@@ -6,7 +6,7 @@ body{
 }
 
 section{
-	height: 120vh;
+	height: 140vh;
 }
 
 section.images{
@@ -18,19 +18,19 @@ background-color: var(--white-color);
 
 display: flex;
 
-width: 85vw;
+width: max-content;
 height: fit-content;
 
 justify-content: center;
 justify-self: center;
 
-gap: 20px;
 }
 
 article{
-	margin: 20px;
-	align-self: center;
-	height: 80vh;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	height: 105vh;
 
 	background-size: cover;
 	background-position: center;
@@ -39,18 +39,46 @@ article{
 }
 
 .miranda{
+	margin-left: 20px;
+	margin-right: 10px;
 background-image: url(/assets_images/About-us-2.png);
 
 }
 
 .landber{
+	margin-right: 20px;
+	margin-left: 10px;
 background-image: url(/assets_images/About-us-3.png);
 background-size: cover sizex(-1);
+}
+
+.landber.h1{
+	align-content: end;
+}
+
+
+
+
+div{
+  display: flex;
+  gap: 60px;
+  align-items: baseline;
+}
+
+article.titres{
+	margin: 60px;
+	
 }
 
 
 h1{
 	font-size: var(--font-size-xxxxxl);
+}
+
+span{
+	font-style: italic;
+	font-weight: 200;
+	margin-right: 120px;
 }
 
 h2{
@@ -79,4 +107,4 @@ img{
  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
-  */
+  */	
