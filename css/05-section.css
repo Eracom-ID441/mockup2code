@@ -56,8 +56,18 @@ background-size: cover sizex(-1);
 	align-content: end;
 }
 
+
+
+
+div{
+  display: flex;
+  gap: 60px;
+  align-items: baseline;
+}
+
 article.titres{
 	margin: 60px;
+	
 }
 
 
@@ -89,3 +99,12 @@ p{
   border: 1px solid var(--main-color);
   border-radius: 50%;
 }
+
+
+
+/*
+img{
+ -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+  */	
