@@ -1,8 +1,8 @@
 .grid-services {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  grid-auto-rows: minmax(120px, auto);
+  gap: var(--spacing-m);
+  grid-auto-rows: minmax(120px,auto);
   margin-top: var(--spacing-l);
 }
 
