@@ -14,7 +14,7 @@ jobs:
       - name: Récupérer le repo
         uses: actions/checkout@v4
 
-      - name: Fusionner proprement (CSS Unique + Sections)
+      - name: Fusionner proprement (Priorité Defaults.css + Sections)
         run: |
           # 1. Préparation du fichier index.html
           echo "<!DOCTYPE html>" > index.html
@@ -23,30 +23,36 @@ jobs:
           echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
           echo "<title>Maxime Margot | Portfolio</title>" >> index.html
           
-          # 2. GESTION DU CSS SANS DOUBLONS
-          # On extrait tous les <link> de tous les fichiers, on trie et on garde l'unique
-          if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
-            grep -h "<link" [0-9][0-9]-*.html | sed 's/^[[:space:]]*//' | sort -u >> index.html
-            # On récupère aussi les balises <style> au cas où (plus rare, mais utile)
-            sed -n '/<style>/,/<\/style>/p' [0-9][0-9]-*.html >> index.html
-          fi
+          # 2. GESTION DU CSS AVEC PRIORITÉ
+          # On crée un fichier temporaire pour collecter tous les liens uniques
+          grep -h "<link" [0-9][0-9]-*.html | sed 's/^[[:space:]]*//' | sort -u > all_links.tmp
+
+          # On écrit d'abord la ligne de defaults.css (si elle existe)
+          grep "defaults.css" all_links.tmp >> index.html || true
+          
+          # On écrit ensuite toutes les autres lignes SAUF defaults.css
+          grep -v "defaults.css" all_links.tmp >> index.html || true
+          
+          # On ajoute les balises <style> internes s'il y en a
+          sed -n '/<style>/,/<\/style>/p' [0-9][0-9]-*.html >> index.html
           
           echo "</head><body>" >> index.html
           
           # 3. EXTRACTION DES SECTIONS
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
-              # On prend tout ce qui est entre <section et </section>
+              echo "" >> index.html
               sed -n '/<section/,/<\/section>/p' "$file" >> index.html
             done
           fi
 
           echo "</body></html>" >> index.html
+          rm all_links.tmp
 
       - name: Sauvegarder sur GitHub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Fusion : CSS unique et sections uniquement" || echo "Rien à commiter"
+          git commit -m "Fusion : defaults.css en priorité" || echo "Rien à commiter"
           git push
