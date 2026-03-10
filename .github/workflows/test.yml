@@ -1,48 +1,44 @@
-name: Fusion HTML Optimisée
+name: Mes Tests de Fusion HTML
 
 on:
-  push:
-    branches: [ "main" ] # Se lance automatiquement à chaque push
-  workflow_dispatch:      # Garde aussi le bouton manuel au cas où
+  workflow_dispatch: # <--- L'action ne se lance QUE si tu cliques sur le bouton
 
 permissions:
-  contents: write         # Autorise explicitement l'écriture du fichier index.html
+  contents: write    # Nécessaire pour que l'action puisse créer le fichier index.html
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Récupérer le repo
         uses: actions/checkout@v4
 
-      - name: Combiner les fichiers HTML avec Style
+      - name: Combiner les fichiers HTML (Version Améliorée)
         run: |
-          # 1. Création de la structure avec un CSS de base ou commun
+          # 1. Création de la structure propre
           echo "<!DOCTYPE html>" > index.html
-          echo "<html><head><meta charset='UTF-8'><title>Projet Commun</title>" >> index.html
-          echo "<link rel='stylesheet' href='style.css'>" >> index.html # On lie un style global
-          echo "</head><body>" >> index.html
+          echo "<html lang='fr'><head><meta charset='UTF-8'><title>Test de Fusion</title></head><body>" >> index.html
           
-          # 2. Boucle de fusion améliorée
-          # On vérifie d'abord s'il y a des fichiers pour éviter une erreur
+          # 2. On vérifie si des fichiers existent avant de boucler
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
               echo "" >> index.html
-              echo "<section class='page-part' id='section-${file:0:2}'>" >> index.html
+              # J'ajoute une balise <section> pour que ce soit plus facile à styliser après
+              echo "<section id='section-${file:0:2}' style='border-bottom: 1px solid #ccc; padding: 20px;'>" >> index.html
               sed -n '/<body>/,/<\/body>/{ /<body>/d; /<\/body>/d; p }' "$file" >> index.html
               echo "</section>" >> index.html
             done
           else
-            echo "<h1>Aucun fichier trouvé</h1>" >> index.html
+            echo "<p style='color:red;'>Erreur : Aucun fichier de type 01-nom.html trouvé !</p>" >> index.html
           fi
 
           echo "</body></html>" >> index.html
 
-      - name: Commiter le fichier généré
+      - name: Sauvegarder le résultat sur GitHub
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          # On commit seulement s'il y a eu une modification réelle
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build: index.html mis à jour" && git push)
+          git commit -m "Test : génération manuelle de index.html" || echo "Pas de changement à valider"
+          git push
