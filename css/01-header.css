@@ -1,10 +1,12 @@
+#section-01
+{
 .menu ul
 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     list-style: none;
-    gap: 20px;
+    gap: min(20px, 5%);
     margin-top: 30px;
     margin-bottom: 40px;
     margin-left: 60px;
@@ -30,12 +32,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 213px; 
+    margin-right: min(100px, 10%); 
 }
 
 
 
 
 .menu li:nth-child(6) {
-    margin-right: 230px; 
+    margin-right: min(100px, 10%); 
+}
+
+.container {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 }
