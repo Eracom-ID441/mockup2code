@@ -1,92 +1,92 @@
 #section-11{
-.full-box_11 {
-    display: flex;
-    width: 100%;
-    min-height: 600px;
-    align-items: stretch;
-} 
+    .full-box_11 {
+        display: flex;
+        width: 100%;
+        min-height: 600px;
+        align-items: stretch;
+    } 
 
-.semi-big{
-	font-size: var(--font-size-xxl);
-}
-
-
-
-.formulaire_11 {
-    flex: 1;               
-	background-color: var(--main-color);
-    padding: 60px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-	font-size: var(--font-size-s);
-}
-
-.container{
-	margin: 100px 60px ;
-}
-.ligne{
-  height: 1px;
-  border: 2px;
-  background-color: #FF1100;
-  margin: 35px 0;
-}
-header{
-	text-align: center;
-}
-
-.input-group{
-	flex: 1;
-    display: flex;
-	margin-bottom: 84px; 
-    padding-bottom : 10px;
-    position: relative;
-     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.input-group label {
-    display: block;
-    color: white;
-    margin-right: 1rem;
-    font-size: var(--font-size-s);
+    .semi-big{
+        font-size: var(--font-size-xxl);
+    }
 
 
-}
 
-.input-group input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    text-align: left;
-    font-size: var(--font-size-xs);
-    color: white;
+    .formulaire_11 {
+        flex: 1;               
+        background-color: var(--main-color);
+        padding: 60px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: var(--font-size-s);
+    }
 
-    outline: none;
-}
+    .container{
+        margin: 100px 60px ;
+    }
+    .ligne{
+    height: 1px;
+    border: 2px;
+    background-color: #FF1100;
+    margin: 35px 0;
+    }
+    header{
+        text-align: center;
+    }
+
+    .input-group{
+        flex: 1;
+        display: flex;
+        margin-bottom: 84px; 
+        padding-bottom : 10px;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .input-group label {
+        display: block;
+        color: white;
+        margin-right: 1rem;
+        font-size: var(--font-size-s);
 
 
-.image_11 {
-    flex: 1;
+    }
 
-}
+    .input-group input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: var(--font-size-xs);
+        color: white;
 
-.image_11 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+        outline: none;
+    }
 
-.submit-btn {
-    background-color: rgba(255, 255, 255, 0.464);
-    border: 0.5px solid white;
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 60px;
-    font-size: var(font-size-m);
-    font-weight: 500;
-    
-}
+
+    .image_11 {
+        flex: 1;
+
+    }
+
+    .image_11 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .submit-btn {
+        background-color: rgba(255, 255, 255, 0.464);
+        border: 0.5px solid white;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 60px;
+        font-size: var(font-size-m);
+        font-weight: 500;
+        
+    }
 }
