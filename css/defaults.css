@@ -29,7 +29,7 @@
   --black-color: #1C1815;
   --blur: blur(6px);
   --blur-border: 1px solid #FFF;
-  
+
   /* Variables de texte */
   --font-size-xs: 16px; /* petit lien */
   --font-size-s: 18px;/* petit texte */
@@ -41,12 +41,10 @@
   --font-size-xxxxl: 80px;/* texte partie lookbook */
   --font-size-xxxxxl: 125px;/* titre des sections */
   --font-size-xxxxxxl: 160px;/* premier titre */
-}
 
-.ligne{
-  height: 1px;
-  border: none;
-  background-color: var(--main-color);
+  /* variables d'espacement */
+  --spacing-m: 18px;
+  --spacing-l:100px;
 }
 
 body{
@@ -56,13 +54,32 @@ body{
   color: var(--main-color);
 }
 
-
+.ligne{
+  height: 1px;
+  border: none;
+  background-color: var(--main-color);
+}
 
 h1,h2,h3{
   text-transform: uppercase;
   font-weight: 500;
 }
 
+.titre{
+  font-size: var(--font-size-xxxxxl);
+  text-align: center;
+  font-style: normal;
+  letter-spacing: -6%;
+  line-height: 1;
+  margin: var(--spacing-m) 0;
+}
+
 .container{
 	margin: 100px 60px ;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: var(--black-color);
+  }
 }
