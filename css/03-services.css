@@ -1,3 +1,5 @@
+#section-03{
+
 .grid-services {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -6,13 +8,13 @@
   margin-top: var(--spacing-l);
 }
 
-.section-03 h3{
+h3{
   margin: 10px 0 2px 0;
   line-height: 1.3;
   letter-spacing: -2.5%;
 }
 
-.section-03 img{
+img{
   width: 100%;
   aspect-ratio: 313/258 ;
   object-fit: cover;
@@ -61,10 +63,12 @@
 }
 
 
-.section-03 a{
+a{
   color: var(--main-color);
   font-size: var(--font-size-xs);
   text-decoration-line: underline;
   text-underline-offset: 2px;
 }
 
+
+}

@@ -1,19 +1,8 @@
-@font-face {
-	font-family: 'Inter';
-	font-style: italic;
-	font-weight: 200;
-	src: url('../fonts/Inter-ExtraLightItalic.woff2') format('woff2');
-  }
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
-}
 
 
-.section_10 h1 {
+
+#section-10{
+h1 {
 
 margin: 0;
 
@@ -75,7 +64,7 @@ text-align: center;
   .arrow{
 	width: 60px;
 	height: 28px;
-	border-radius: 50px; 
+	border-radius: 100px; 
 	border: 1px solid rgba(255,255,255,0.6);
 	background: rgba(255,255,255,0.6);
 	color: white;
@@ -94,5 +83,6 @@ text-align: center;
 .reviews_header{
 margin-top: 40px;
 margin-bottom: 59px;
+}
 }
 
