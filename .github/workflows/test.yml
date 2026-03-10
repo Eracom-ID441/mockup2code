@@ -14,42 +14,39 @@ jobs:
       - name: Récupérer le repo
         uses: actions/checkout@v4
 
-      - name: Fusionner les sections et les styles
+      - name: Fusionner proprement (CSS Unique + Sections)
         run: |
-          # 1. Initialisation du fichier index.html
+          # 1. Préparation du fichier index.html
           echo "<!DOCTYPE html>" > index.html
           echo "<html lang='fr'><head>" >> index.html
           echo "<meta charset='UTF-8'>" >> index.html
           echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
-          echo "<title>Fusion Maxime Margot</title>" >> index.html
+          echo "<title>Maxime Margot | Portfolio</title>" >> index.html
           
-          # 2. Extraction des liens CSS de tous les fichiers
+          # 2. GESTION DU CSS SANS DOUBLONS
+          # On extrait tous les <link> de tous les fichiers, on trie et on garde l'unique
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
-            for file in $(ls [0-9][0-9]-*.html | sort); do
-              # Récupère uniquement les balises <link> ou <style>
-              sed -n '/<head>/,/<\/head>/{ /<link/p; /<style>/,/<\/style>/p; }' "$file" >> index.html
-            done
+            grep -h "<link" [0-9][0-9]-*.html | sed 's/^[[:space:]]*//' | sort -u >> index.html
+            # On récupère aussi les balises <style> au cas où (plus rare, mais utile)
+            sed -n '/<style>/,/<\/style>/p' [0-9][0-9]-*.html >> index.html
           fi
           
           echo "</head><body>" >> index.html
           
-          # 3. Extraction de la balise <section> uniquement
+          # 3. EXTRACTION DES SECTIONS
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
-              echo "" >> index.html
-              # Extrait tout ce qui se trouve entre <section et </section> (inclus)
+              # On prend tout ce qui est entre <section et </section>
               sed -n '/<section/,/<\/section>/p' "$file" >> index.html
             done
-          else
-            echo "<p style='color:red;'>Erreur : Aucun fichier trouvé !</p>" >> index.html
           fi
 
           echo "</body></html>" >> index.html
 
-      - name: Sauvegarder le résultat sur GitHub
+      - name: Sauvegarder sur GitHub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Fusion propre des sections et CSS" || echo "Pas de changement"
+          git commit -m "Fusion : CSS unique et sections uniquement" || echo "Rien à commiter"
           git push
