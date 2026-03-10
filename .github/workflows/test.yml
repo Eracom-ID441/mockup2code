@@ -1,10 +1,10 @@
 name: Mes Tests de Fusion HTML
 
 on:
-  workflow_dispatch: # <--- L'action ne se lance QUE si tu cliques sur le bouton
+  workflow_dispatch:
 
 permissions:
-  contents: write    # Nécessaire pour que l'action puisse créer le fichier index.html
+  contents: write
 
 jobs:
   build-test:
@@ -14,18 +14,33 @@ jobs:
       - name: Récupérer le repo
         uses: actions/checkout@v4
 
-      - name: Combiner les fichiers HTML (Version Améliorée)
+      - name: Combiner les fichiers HTML (Style inclus)
         run: |
-          # 1. Création de la structure propre
+          # 1. Début du fichier et ouverture du HEAD
           echo "<!DOCTYPE html>" > index.html
-          echo "<html lang='fr'><head><meta charset='UTF-8'><title>Test de Fusion</title></head><body>" >> index.html
+          echo "<html lang='fr'><head>" >> index.html
+          echo "<meta charset='UTF-8'>" >> index.html
+          echo "<title>Test de Fusion</title>" >> index.html
           
-          # 2. On vérifie si des fichiers existent avant de boucler
+          # 2. EXTRACTION DES STYLES (CSS)
+          # On parcourt les fichiers pour copier les balises <link> ou <style> dans le head
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
               echo "" >> index.html
-              # J'ajoute une balise <section> pour que ce soit plus facile à styliser après
+              # Extrait tout ce qui est entre <head> et </head> qui ressemble à du CSS
+              sed -n '/<head>/,/<\/head>/{ /<link/p; /<style>/,/<\/style>/p; }' "$file" >> index.html
+            done
+          fi
+          
+          # 3. FERMETURE DU HEAD ET OUVERTURE DU BODY
+          echo "</head><body>" >> index.html
+          
+          # 4. INSERTION DU CONTENU (BODY)
+          if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
+            for file in $(ls [0-9][0-9]-*.html | sort); do
+              echo "" >> index.html
               echo "<section id='section-${file:0:2}' style='border-bottom: 1px solid #ccc; padding: 20px;'>" >> index.html
+              # On ne prend que le contenu à l'intérieur de <body>
               sed -n '/<body>/,/<\/body>/{ /<body>/d; /<\/body>/d; p }' "$file" >> index.html
               echo "</section>" >> index.html
             done
@@ -40,5 +55,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Test : génération manuelle de index.html" || echo "Pas de changement à valider"
+          git commit -m "Test : génération de index.html avec styles" || echo "Pas de changement à valider"
           git push
