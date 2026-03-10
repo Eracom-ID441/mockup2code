@@ -39,7 +39,7 @@ article{
 }
 
 .miranda{
-	margin-left: 20px;
+	margin-left: 40px;
 	margin-right: 10px;
 background-image: url(/assets_images/About-us-2.png);
 
@@ -49,7 +49,7 @@ background-image: url(/assets_images/About-us-2.png);
 	margin-right: 20px;
 	margin-left: 10px;
 background-image: url(/assets_images/About-us-3.png);
-transform: scaleX(-1);
+/*transform: scaleX(-1);*/
 }
 
 .landber.h1{
@@ -59,11 +59,7 @@ transform: scaleX(-1);
 
 
 
-div{
-  display: flex;
-  gap: 60px;
-  align-items: baseline;
-}
+
 
 article.titres{
 	margin: 60px;
