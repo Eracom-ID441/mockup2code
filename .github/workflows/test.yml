@@ -50,4 +50,14 @@ jobs:
           echo "</body></html>" >> index.html
 
       - name: 3. Sauvegarder (Push) sur GitHub
-        run
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          # On commit seulement s'il y a eu un changement pour éviter les erreurs
+          if ! git diff --cached --quiet; then
+            git commit -m "Test : génération de index.html"
+            git push
+          else
+            echo "Aucune modification détectée."
+          fi
