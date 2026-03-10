@@ -1,5 +1,8 @@
+#section-06{
+
+
 .contenu{
-	margin-top: var(--spacing-l);
+	padding-top: var(--spacing-l);
 }
 
 .step{
@@ -41,19 +44,26 @@ h1{
 	font-size: var(--font-size-xxxxxl);
 	text-align: center;
 	letter-spacing: -6%;
-	margin-top: var(--spacing-l);
+	padding-top: var(--spacing-l);
+	margin: 0;
+}
+
+
 }
 
 @media (prefers-color-scheme: dark) {
-  body{
-    background: var(--main-color);
+ 
+  #section-06{
+    background:#FF1100;
   }
 
-  h1,h3,p{
+  #section-06 h1,
+  #section-06 h3,
+  #section-06 p{
 	color: #F9F9F9;
   }
 
-  .ligne{
+  #section-06 .ligne{
 	background-color: #F9F9F9;
   }
 }
