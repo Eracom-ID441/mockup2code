@@ -14,38 +14,34 @@ jobs:
       - name: Récupérer le repo
         uses: actions/checkout@v4
 
-      - name: Combiner les fichiers HTML (Style inclus)
+      - name: Fusionner les sections et les styles
         run: |
-          # 1. Début du fichier et ouverture du HEAD
+          # 1. Initialisation du fichier index.html
           echo "<!DOCTYPE html>" > index.html
           echo "<html lang='fr'><head>" >> index.html
           echo "<meta charset='UTF-8'>" >> index.html
-          echo "<title>Test de Fusion</title>" >> index.html
+          echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
+          echo "<title>Fusion Maxime Margot</title>" >> index.html
           
-          # 2. EXTRACTION DES STYLES (CSS)
-          # On parcourt les fichiers pour copier les balises <link> ou <style> dans le head
+          # 2. Extraction des liens CSS de tous les fichiers
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
-              echo "" >> index.html
-              # Extrait tout ce qui est entre <head> et </head> qui ressemble à du CSS
+              # Récupère uniquement les balises <link> ou <style>
               sed -n '/<head>/,/<\/head>/{ /<link/p; /<style>/,/<\/style>/p; }' "$file" >> index.html
             done
           fi
           
-          # 3. FERMETURE DU HEAD ET OUVERTURE DU BODY
           echo "</head><body>" >> index.html
           
-          # 4. INSERTION DU CONTENU (BODY)
+          # 3. Extraction de la balise <section> uniquement
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
               echo "" >> index.html
-              sed -n '/<body>/,/<\/body>/{ /<body>/d; /<\/body>/d; p }' "$file" >> index.html
-              # On ne prend que le contenu à l'intérieur de <body>
-              sed -n '/<body>/,/<\/body>/{ /<body>/d; /<\/body>/d; p }' "$file" >> index.html
-              echo "</section>" >> index.html
+              # Extrait tout ce qui se trouve entre <section et </section> (inclus)
+              sed -n '/<section/,/<\/section>/p' "$file" >> index.html
             done
           else
-            echo "<p style='color:red;'>Erreur : Aucun fichier de type 01-nom.html trouvé !</p>" >> index.html
+            echo "<p style='color:red;'>Erreur : Aucun fichier trouvé !</p>" >> index.html
           fi
 
           echo "</body></html>" >> index.html
@@ -55,5 +51,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Test : génération de index.html avec styles" || echo "Pas de changement à valider"
+          git commit -m "Fusion propre des sections et CSS" || echo "Pas de changement"
           git push
