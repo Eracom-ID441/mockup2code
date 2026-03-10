@@ -1,44 +1,53 @@
 name: Mes Tests de Fusion HTML
 
+# Déclencheur manuel uniquement pour tes essais
 on:
-  workflow_dispatch: # <--- L'action ne se lance QUE si tu cliques sur le bouton
+  workflow_dispatch:
 
+# Autorise l'Action à écrire le fichier index.html sur ton dépôt
 permissions:
-  contents: write    # Nécessaire pour que l'action puisse créer le fichier index.html
+  contents: write
 
 jobs:
   build-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Récupérer le repo
+      - name: 1. Récupérer le code du dépôt
         uses: actions/checkout@v4
 
-      - name: Combiner les fichiers HTML (Version Améliorée)
+      - name: 2. Fusionner les fichiers avec tolérance
         run: |
-          # 1. Création de la structure propre
+          # Création de l'en-tête du fichier final
           echo "<!DOCTYPE html>" > index.html
-          echo "<html lang='fr'><head><meta charset='UTF-8'><title>Test de Fusion</title></head><body>" >> index.html
+          echo "<html lang='fr'><head><meta charset='UTF-8'><title>Compilation Projet</title></head><body>" >> index.html
           
-          # 2. On vérifie si des fichiers existent avant de boucler
+          # Boucle sur tous les fichiers qui commencent par deux chiffres (ex: 01-accueil.html)
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
               echo "" >> index.html
-              # J'ajoute une balise <section> pour que ce soit plus facile à styliser après
-              echo "<section id='section-${file:0:2}' style='border-bottom: 1px solid #ccc; padding: 20px;'>" >> index.html
-              sed -n '/<body>/,/<\/body>/{ /<body>/d; /<\/body>/d; p }' "$file" >> index.html
+              
+              # On crée une section pour chaque camarade (pratique pour le CSS)
+              echo "<section class='page-part' id='section-${file:0:2}' style='border-bottom: 2px dashed #ccc; padding: 20px;'>" >> index.html
+              
+              # AMÉLIORATION : On cherche le contenu du body de manière flexible
+              # Si on trouve une balise <body> (même avec des classes ou en majuscules)
+              if grep -qi "<body" "$file"; then
+                # On extrait proprement ce qu'il y a entre <body> et </body>
+                sed -n '/<body[^>]*>/, /<\/body>/ { /<body[^>]*>/d; /<\/body>/d; p; }' "$file" >> index.html
+              else
+                # Si le camarade a oublié le <body>, on prend tout le contenu du fichier
+                cat "$file" >> index.html
+              fi
+              
               echo "</section>" >> index.html
             done
           else
-            echo "<p style='color:red;'>Erreur : Aucun fichier de type 01-nom.html trouvé !</p>" >> index.html
+            echo "<h1>Aucun fichier 00-nom.html trouvé</h1>" >> index.html
           fi
 
+          # Fermeture des balises
           echo "</body></html>" >> index.html
 
-      - name: Sauvegarder le résultat sur GitHub
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Test : génération manuelle de index.html" || echo "Pas de changement à valider"
-          git push
+      - name: 3. Sauvegarder (Push) sur GitHub
+        run
