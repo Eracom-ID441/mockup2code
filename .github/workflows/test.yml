@@ -1,10 +1,10 @@
 name: Mes Tests de Fusion HTML
 
 on:
-  workflow_dispatch: # <--- L'action ne se lance QUE si tu cliques sur le bouton
+  workflow_dispatch:
 
 permissions:
-  contents: write    # Nécessaire pour que l'action puisse créer le fichier index.html
+  contents: write
 
 jobs:
   build-test:
@@ -14,31 +14,52 @@ jobs:
       - name: Récupérer le repo
         uses: actions/checkout@v4
 
-      - name: Combiner les fichiers HTML (Version Améliorée)
+      - name: Fusionner proprement (Full Body Content)
         run: |
-          # 1. Création de la structure propre
+          # 1. Préparation du squelette index.html
+          echo "Isole les en-têtes..."
           echo "<!DOCTYPE html>" > index.html
-          echo "<html lang='fr'><head><meta charset='UTF-8'><title>Test de Fusion</title></head><body>" >> index.html
+          echo "<html lang='fr'><head>" >> index.html
+          echo "<meta charset='UTF-8'>" >> index.html
+          echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
+          echo "<title>Maxime Margot | Portfolio</title>" >> index.html
           
-          # 2. On vérifie si des fichiers existent avant de boucler
+          # 2. GESTION DU CSS (Priorité defaults.css)
+          # On récupère tous les liens <link> de tous les fichiers, sans doublons
+          grep -h "<link" [0-9][0-9]-*.html | sed 's/^[[:space:]]*//' | sort -u > all_links.tmp
+
+          # On place defaults.css en premier s'il existe
+          grep "defaults.css" all_links.tmp >> index.html || true
+          
+          # On place tous les autres liens CSS ensuite
+          grep -v "defaults.css" all_links.tmp >> index.html || true
+          
+          # On ajoute les blocs <style> internes s'ils existent
+          sed -n '/<style>/,/<\/style>/p' [0-9][0-9]-*.html >> index.html
+          
+          echo "</head><body>" >> index.html
+          
+          # 3. EXTRACTION DE TOUT LE CONTENU DU BODY
+          # On boucle sur les fichiers HTML numérotés
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
               echo "" >> index.html
-              # J'ajoute une balise <section> pour que ce soit plus facile à styliser après
-              echo "<section id='section-${file:0:2}' style='border-bottom: 1px solid #ccc; padding: 20px;'>" >> index.html
-              sed -n '/<body>/,/<\/body>/{ /<body>/d; /<\/body>/d; p }' "$file" >> index.html
-              echo "</section>" >> index.html
+              
+              # Cette commande sed extrait tout ce qui est ENTRE <body> et </body>
+              # Elle supprime les lignes contenant les balises <body> ou </body> elles-mêmes
+              sed -n '/<body/,/<\/body>/{ /<body/d; /<\/body>/d; p; }' "$file" >> index.html
+              
+              echo "" >> index.html
             done
-          else
-            echo "<p style='color:red;'>Erreur : Aucun fichier de type 01-nom.html trouvé !</p>" >> index.html
           fi
 
           echo "</body></html>" >> index.html
+          rm all_links.tmp
 
-      - name: Sauvegarder le résultat sur GitHub
+      - name: Sauvegarder sur GitHub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Test : génération manuelle de index.html" || echo "Pas de changement à valider"
-          git push
+          # On commit seulement s'il y a des changements pour éviter de faire échouer le workflow
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Fusion : Full Body content intégré" && git push)
