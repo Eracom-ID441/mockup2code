@@ -49,7 +49,7 @@ background-image: url(/assets_images/About-us-2.png);
 	margin-right: 20px;
 	margin-left: 10px;
 background-image: url(/assets_images/About-us-3.png);
-background-size: cover sizex(-1);
+transform: scaleX(-1);
 }
 
 .landber.h1{
@@ -68,8 +68,10 @@ div{
 article.titres{
 	margin: 60px;
 	
+	display: flex;
+	flex-direction: column;
+	gap: 80px;
 }
-
 
 h1{
 	font-size: var(--font-size-xxxxxl);
@@ -81,20 +83,19 @@ span{
 	margin-right: 120px;
 }
 
-h2{
-	font-style: italic;
-	font-weight: 200;
-	font-size: var(--font-size-xxxxxl);
-}
+
+
+
 
 p{
 	font-size: var(--font-size-s);
 	text-transform: uppercase;
+	margin-left: 25px;
 }
 
 .logo {
   display: inline-block;
-  padding: 6px 20px;
+  padding: 6px 21px;
 
   border: 1px solid var(--main-color);
   border-radius: 50%;
