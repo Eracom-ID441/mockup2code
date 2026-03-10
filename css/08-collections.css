@@ -1,11 +1,12 @@
-body {
+#collections{
+
   margin: 5em 5em 10em 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
-}
+
 
 h1 {
   font-size: var(--font-size-xxxxxl);
@@ -14,6 +15,7 @@ h1 {
 }
 
 #collections-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -26,7 +28,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 42em;
+  width: auto;
   height: auto;
   aspect-ratio: 1 / 1;
   margin: 0;
@@ -64,19 +66,57 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 2em 8em 2em 8em;
-  width: 60%;
   backdrop-filter: var(--blur);
   border: var(--blur-border);
   border-radius: 100px;
   background: rgba(227, 227, 227, 0.2);
   color: var(--white-color);
-  font-weight: 300;
   transition: background-color 0.3s ease-in-out;
+}
+.buttons-collections h3{
+  font-size: var(--font-size-m);
+  margin: 1.4em 3em 1.4em 3em;
 }
  
 .buttons-collections:hover {
-  background: var(--white-color);
+  background: var(--main-color);
   border-color: var(--white-color);
-  color: var(--main-color);
+  color: var(--white-color);
+}
+
+@media (max-width: 768px) {
+  h1{
+    font-size: var(--font-size-xxl);
+  }
+#collections-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 21px;
+  grid-row-gap: 21px;
+}
+
+.collections-card h2 {
+  
+  letter-spacing: -5.5%;
+  font-size: var(--font-size-m);
+}
+
+.collections-card h3{
+  font-size: var(--font-size-xs);
+  margin: 1em 2em 1em 2em;
+  width: 100%;
+}
+
+.collections-card {
+  width: auto;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  padding: 0;
+}
+
+}
+
 }
