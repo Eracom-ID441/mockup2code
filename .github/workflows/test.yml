@@ -1,0 +1,63 @@
+name: Mes Tests de Fusion HTML
+
+# Déclencheur manuel uniquement pour tes essais
+on:
+  workflow_dispatch:
+
+# Autorise l'Action à écrire le fichier index.html sur ton dépôt
+permissions:
+  contents: write
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Récupérer le code du dépôt
+        uses: actions/checkout@v4
+
+      - name: 2. Fusionner les fichiers avec tolérance
+        run: |
+          # Création de l'en-tête du fichier final
+          echo "<!DOCTYPE html>" > index.html
+          echo "<html lang='fr'><head><meta charset='UTF-8'><title>Compilation Projet</title></head><body>" >> index.html
+          
+          # Boucle sur tous les fichiers qui commencent par deux chiffres (ex: 01-accueil.html)
+          if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
+            for file in $(ls [0-9][0-9]-*.html | sort); do
+              echo "" >> index.html
+              
+              # On crée une section pour chaque camarade (pratique pour le CSS)
+              echo "<section class='page-part' id='section-${file:0:2}' style='border-bottom: 2px dashed #ccc; padding: 20px;'>" >> index.html
+              
+              # AMÉLIORATION : On cherche le contenu du body de manière flexible
+              # Si on trouve une balise <body> (même avec des classes ou en majuscules)
+              if grep -qi "<body" "$file"; then
+                # On extrait proprement ce qu'il y a entre <body> et </body>
+                sed -n '/<body[^>]*>/, /<\/body>/ { /<body[^>]*>/d; /<\/body>/d; p; }' "$file" >> index.html
+              else
+                # Si le camarade a oublié le <body>, on prend tout le contenu du fichier
+                cat "$file" >> index.html
+              fi
+              
+              echo "</section>" >> index.html
+            done
+          else
+            echo "<h1>Aucun fichier 00-nom.html trouvé</h1>" >> index.html
+          fi
+
+          # Fermeture des balises
+          echo "</body></html>" >> index.html
+
+      - name: 3. Sauvegarder (Push) sur GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          # On commit seulement s'il y a eu un changement pour éviter les erreurs
+          if ! git diff --cached --quiet; then
+            git commit -m "Test : génération de index.html"
+            git push
+          else
+            echo "Aucune modification détectée."
+          fi
