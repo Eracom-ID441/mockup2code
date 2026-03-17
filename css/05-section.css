@@ -1,4 +1,4 @@
-body{
+#section-05{
 	background-color: var(--main-bg-color);
 	align-self: center;
 	color: var(--main-color)
@@ -53,7 +53,9 @@ background-image: url(/assets_images/About-us-3.png);
 }
 
 .landber.h1{
-	align-content: end;
+ /* position: absolute;
+  bottom: 20px;
+  left: 20px;*/
 }
 
 
@@ -74,6 +76,7 @@ h1{
 }
 
 span{
+	/*min-width: 200px;*/
 	font-style: italic;
 	font-weight: 200;
 	margin-right: 120px;
