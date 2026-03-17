@@ -8,7 +8,7 @@
   align-content: center;
 
 
-h1 {
+#collections h1 {
   font-size: var(--font-size-xxxxxl);
   color: var(--main-color);
   letter-spacing: -5.5%;
@@ -85,9 +85,10 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  h1{
-    font-size: var(--font-size-xxl);
+  #collections h1{
+    font-size: var(--font-size-xxl) !important;
   }
+
 #collections-grid {
   width: 100%;
   display: grid;
@@ -97,14 +98,18 @@ h1 {
   grid-row-gap: 21px;
 }
 
-.collections-card h2 {
+.buttons-collections{
+  width: auto;
   
+}
+
+.collections-card h2 {
+  font-size: var(--font-size-xxl);
   letter-spacing: -5.5%;
-  font-size: var(--font-size-m);
 }
 
 .collections-card h3{
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-s);
   margin: 1em 2em 1em 2em;
   width: 100%;
 }
