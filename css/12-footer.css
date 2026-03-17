@@ -3,6 +3,8 @@
 	padding: 0;
 	box-sizing: border-box;
 } */
+#section-12{
+
 
 body{
 	background-color: #E0D9D3
@@ -109,3 +111,4 @@ p{
   .bottom-row .column:first-child{
 	margin-top: -40px;
   }
+}

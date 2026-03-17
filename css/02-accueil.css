@@ -1,7 +1,5 @@
 #section-02{
-	margin: 0;
-	padding: 0;
-	min-height: 100vh;
+	
 
 
 .section02 {
@@ -12,7 +10,12 @@
 	color: var(--main-color);
 	text-transform: uppercase;
 	border: 1px solid transparent;
-
+margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .section02 p {
