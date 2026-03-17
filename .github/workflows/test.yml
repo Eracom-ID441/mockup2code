@@ -1,6 +1,6 @@
 name: Mes Tests de Fusion HTML
 
-# Déclenchement uniquement manuel
+# L'événement "workflow_dispatch" active le bouton "Run workflow" manuellement
 on:
   workflow_dispatch:
 
@@ -17,40 +17,46 @@ jobs:
 
       - name: Fusionner proprement (Full Body Content)
         run: |
-          echo "💡 Début de la fusion des fichiers HTML..."
-
-          # 1. Préparer le squelette index.html
+          # 1. Préparation du squelette index.html
           echo "<!DOCTYPE html>" > index.html
           echo "<html lang='fr'><head>" >> index.html
           echo "<meta charset='UTF-8'>" >> index.html
           echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
-          echo "<title>Maxime Margot | Portfolio</title>" >> index.html
+          echo "<title>ID441 | mokup2code</title>" >> index.html
+          
+          # 2. GESTION DU CSS
+          # Extraction des liens sans doublons
+          grep -h "<link" [0-9][0-9]-*.html 2>/dev/null | sed 's/^[[:space:]]*//' | sort -u > all_links.tmp || touch all_links.tmp
 
-          # 2. Gestion du CSS
-          grep -h "<link" [0-9][0-9]-*.html 2>/dev/null | sed 's/^[[:space:]]*//' | sort -u > all_links.tmp || true
+          # Priorité au defaults.css s'il est présent
           grep "defaults.css" all_links.tmp >> index.html || true
           grep -v "defaults.css" all_links.tmp >> index.html || true
-
-          # Ajouter les <style> internes
-          sed -n '/<style>/,/<\/style>/p' [0-9][0-9]-*.html >> index.html || true
-
+          
+          # Ajout des styles internes
+          sed -n '/<style>/,/<\/style>/p' [0-9][0-9]-*.html >> index.html 2>/dev/null || true
+          
           echo "</head><body>" >> index.html
-
-          # 3. Extraire tout le contenu du body
+          
+          # 3. EXTRACTION DU CONTENU DU BODY
           if ls [0-9][0-9]-*.html 1> /dev/null 2>&1; then
             for file in $(ls [0-9][0-9]-*.html | sort); do
               echo "" >> index.html
               sed -n '/<body/,/<\/body>/{ /<body/d; /<\/body>/d; p; }' "$file" >> index.html
-              echo "" >> index.html
             done
           fi
 
           echo "</body></html>" >> index.html
           rm -f all_links.tmp
 
-          echo "✅ Fusion terminée ! index.html est prêt."
-      
-      - name: Vérifier les changements
+      - name: Sauvegarder sur GitHub
         run: |
-          git status
-          echo "💡 Si des modifications sont présentes, fais un commit manuel sur ton repo."
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          # Le commit ne se fait que s'il y a une modification réelle
+          if ! git diff --cached --quiet; then
+            git commit -m "Fusion manuelle : Full Body content intégré"
+            git push
+          else
+            echo "Aucun changement détecté sur index.html"
+          fi
