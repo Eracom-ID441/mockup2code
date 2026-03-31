@@ -1,10 +1,5 @@
 #section-05{
-	
 
-
-section{
-	height: 140vh;
-}
 
 section.images{
 	background-color: var(--main-color);
@@ -27,8 +22,6 @@ article{
 	margin-top: 20px;
 	margin-bottom: 20px;
 
-	height: 105vh;
-
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -48,14 +41,6 @@ background-image: url(/assets_images/About-us-2.png);
 background-image: url(/assets_images/About-us-3.png);
 /*transform: scaleX(-1);*/
 }
-
-.landber.h1{
- /* position: absolute;
-  bottom: 20px;
-  left: 20px;*/
-}
-
-
 
 
 
