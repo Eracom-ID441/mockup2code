@@ -55,7 +55,7 @@ h1{
 @media (prefers-color-scheme: dark) {
  
   #section-06{
-    background:#FF1100;
+    background:var(--main-color);
   }
 
   #section-06 h1,
