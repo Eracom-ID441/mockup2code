@@ -27,7 +27,7 @@ article{
 	margin-top: 20px;
 	margin-bottom: 20px;
 
-	height: 105vh;
+	min-height: 105vh;
 
 	background-size: cover;
 	background-position: center;
