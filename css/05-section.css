@@ -3,7 +3,7 @@
 	align-self: center;
 	color: var(--main-color)
 
-}
+
 
 section{
 	height: 140vh;
@@ -108,3 +108,4 @@ img{
   filter: grayscale(100%);
 }
   */	
+}
