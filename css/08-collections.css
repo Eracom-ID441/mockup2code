@@ -23,6 +23,14 @@ h1 {
   grid-row-gap: 21px;
 }
 
+@media (max-width: 800px) {
+  #collections-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    display: grid;
+  }
+}
+
 .collections-card {
   display: flex;
   flex-direction: column;
@@ -54,7 +62,7 @@ h1 {
 #casual {
   background-image: url(/assets_images/Collections-3.png);
   background-position: center !important;
-  background-size: fit-content !important;
+  background-size: cover !important;
 }
 
 #safari {

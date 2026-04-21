@@ -39,7 +39,7 @@
   --font-size-xxl: 50px;/* titre */
   --font-size-xxxl: 53.24px;/* texte pour la partie collection */
   --font-size-xxxxl: 80px;/* texte partie lookbook */
-  --font-size-xxxxxl: 125px;/* titre des sections */
+  --font-size-xxxxxl: clamp(3rem, 7vw, 125px);/* titre des sections */
   --font-size-xxxxxxl: 160px;/* premier titre */
 
   /* variables d'espacement */
