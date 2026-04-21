@@ -1,12 +1,15 @@
 #section-05{
-	background-color: var(--main-bg-color);
 	align-self: center;
 	color: var(--main-color)
 
-}
+
 
 section{
 	height: 140vh;
+}
+
+.images{
+	padding: 198px 10%;
 }
 
 section.images{
@@ -18,7 +21,7 @@ background-color: var(--white-color);
 
 display: flex;
 
-width: max-content;
+width: 100%;
 height: fit-content;
 
 justify-content: center;
@@ -26,7 +29,9 @@ justify-self: center;
 
 }
 
-article{
+.rectangle article{
+position: relative;
+
 	margin-top: 20px;
 	margin-bottom: 20px;
 
@@ -35,11 +40,11 @@ article{
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	width: fit-content;
+	width: 50%;
 }
 
 .miranda{
-	margin-left: 40px;
+	margin-left: 20px;
 	margin-right: 10px;
 background-image: url(/assets_images/About-us-2.png);
 
@@ -52,12 +57,16 @@ background-image: url(/assets_images/About-us-3.png);
 /*transform: scaleX(-1);*/
 }
 
-.landber.h1{
- /* position: absolute;
-  bottom: 20px;
-  left: 20px;*/
+.rectangle h1{
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  left: 20px;
 }
 
+h1{
+	font-size: var(--font-size-xxxxxl);
+}
 
 
 
@@ -71,15 +80,16 @@ article.titres{
 	gap: 80px;
 }
 
-h1{
+h1.liste {
+	text-indent: 450px;
 	font-size: var(--font-size-xxxxxl);
 }
 
 span{
-	/*min-width: 200px;*/
+	left: -400px;
+	position: absolute;
 	font-style: italic;
 	font-weight: 200;
-	margin-right: 120px;
 }
 
 
@@ -99,7 +109,7 @@ p{
   border: 1px solid var(--main-color);
   border-radius: 50%;
 }
-
+}
 
 
 /*
