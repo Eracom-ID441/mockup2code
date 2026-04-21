@@ -3,7 +3,7 @@
 	align-self: center;
 	color: var(--main-color)
 
-}
+
 
 section{
 	height: 140vh;
@@ -110,7 +110,7 @@ p{
   border: 1px solid var(--main-color);
   border-radius: 50%;
 }
-
+}
 
 
 /*
