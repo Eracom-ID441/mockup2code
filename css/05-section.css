@@ -1,12 +1,12 @@
 #section-05{
-	background-color: var(--main-bg-color);
+	
 	align-self: center;
-	color: var(--main-color)
+	color: var(--main-color);
 
 
 
 section{
-	height: 140vh;
+	height: 260vh;
 }
 
 section.images{
