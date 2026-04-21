@@ -1,9 +1,7 @@
-#section-05{
-	background-color: var(--main-bg-color);
-	align-self: center;
-	color: var(--main-color)
+#section-05
+{
 
-}
+
 
 section{
 	height: 140vh;
@@ -52,11 +50,7 @@ background-image: url(/assets_images/About-us-3.png);
 /*transform: scaleX(-1);*/
 }
 
-.landber.h1{
- /* position: absolute;
-  bottom: 20px;
-  left: 20px;*/
-}
+
 
 
 
@@ -83,9 +77,6 @@ span{
 }
 
 
-
-
-
 p{
 	font-size: var(--font-size-s);
 	text-transform: uppercase;
@@ -108,3 +99,5 @@ img{
   filter: grayscale(100%);
 }
   */	
+
+}
