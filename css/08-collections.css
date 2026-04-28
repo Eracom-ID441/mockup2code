@@ -44,21 +44,21 @@ h1 {
 }
 
 #spring {
-  background-image: url(./assets_images/Collections-1.png);
+  background-image: url(../assets_images/Collections-1.png);
 }
 #wedding {
-  background-image: url(./assets_images/Collections-2.png);
+  background-image: url(../assets_images/Collections-2.png);
   background-position: bottom -40px center !important;
 }
 
 #casual {
-  background-image: url(./assets_images/Collections-3.png);
+  background-image: url(../assets_images/Collections-3.png);
   background-position: center !important;
   background-size: fit-content !important;
 }
 
 #safari {
-  background-image: url(./assets_images/Collections-4.png);
+  background-image: url(../assets_images/Collections-4.png);
   background-position: top !important;
 }
 
