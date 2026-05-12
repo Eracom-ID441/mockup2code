@@ -54,16 +54,16 @@ h1{
 @media (prefers-color-scheme: dark) {
  
   #section-06{
-    background:#FF1100;
+    background:var(--white-color);
   }
 
   #section-06 h1,
   #section-06 h3,
   #section-06 p{
-	color: #F9F9F9;
+	color: var(--main-color);
   }
 
   #section-06 .ligne{
-	background-color: #F9F9F9;
+	background-color:var(--main-color);
   }
 }
