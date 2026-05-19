@@ -34,7 +34,7 @@ position: relative;
 	margin-top: 20px;
 	margin-bottom: 20px;
 
-	height: 105vh;
+	min-height: 105vh;
 
 	background-size: cover;
 	background-position: center;
@@ -93,7 +93,6 @@ p{
 
   border: 1px solid var(--main-color);
   border-radius: 50%;
-}
 }
 
 
