@@ -1,6 +1,7 @@
 #section-05{
 	align-self: center;
 	color: var(--main-color);
+	margin-bottom: 260px;
 
 
 
@@ -55,20 +56,6 @@ background-image: url(/assets_images/About-us-3.png);
 /*transform: scaleX(-1);*/
 }
 
-.rectangle h1{
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  left: 20px;
-}
-
-h1{
-	font-size: var(--font-size-xxxxxl);
-}
-
-
-
-
 
 article.titres{
 	margin: 60px;
@@ -109,9 +96,6 @@ p{
 }
 
 
-/*
-img{
- -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+
+  
 }
-  */	
