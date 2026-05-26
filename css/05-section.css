@@ -1,12 +1,11 @@
 #section-05{
 	align-self: center;
 	color: var(--main-color);
+	margin-bottom: 260px;
 
 
 
-section{
-	height: 260vh;
-}
+
 
 .images{
 	padding: 198px 10%;
@@ -35,7 +34,7 @@ position: relative;
 	margin-top: 20px;
 	margin-bottom: 20px;
 
-	height: 105vh;
+	min-height: 105vh;
 
 	background-size: cover;
 	background-position: center;
@@ -56,20 +55,6 @@ background-image: url(/assets_images/About-us-2.png);
 background-image: url(/assets_images/About-us-3.png);
 /*transform: scaleX(-1);*/
 }
-
-.rectangle h1{
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  left: 20px;
-}
-
-h1{
-	font-size: var(--font-size-xxxxxl);
-}
-
-
-
 
 
 article.titres{
@@ -108,7 +93,6 @@ p{
 
   border: 1px solid var(--main-color);
   border-radius: 50%;
-}
 }
 
 

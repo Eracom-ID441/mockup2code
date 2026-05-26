@@ -68,6 +68,8 @@ a{
   font-size: var(--font-size-xs);
   text-decoration-line: underline;
   text-underline-offset: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 

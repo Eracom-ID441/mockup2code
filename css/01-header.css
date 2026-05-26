@@ -20,6 +20,10 @@
     font-weight: 500;
 }
 
+.menu{
+	height: auto;
+}
+
 .menu li:first-of-type
 {
 
