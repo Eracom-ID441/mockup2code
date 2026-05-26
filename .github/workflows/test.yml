@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Récupérer le repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Fusionner proprement (Full Body Content)
         run: |
